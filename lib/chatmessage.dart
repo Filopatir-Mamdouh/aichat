@@ -24,6 +24,15 @@ class ChatMessage extends StatelessWidget {
               Text(
                 sender,
                 style: const TextStyle(color: Colors.red),
+              ),
+              Container(
+                width: (MediaQuery.of(context).size.width -
+                    MediaQuery.of(context).size.width * 0.20),
+                margin: const EdgeInsets.only(top: 5.0),
+                child: Text(
+                  text,
+                  softWrap: true,
+                ),
               )
             ],
           )
