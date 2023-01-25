@@ -19,6 +19,13 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     if(_textController.text.trim().isEmpty){
       return;
     }
+    ChatMessage message = ChatMessage(
+      text: _textController.text, 
+      sender: 'user',);
+      setState(() {
+        _messages.insert(0, message);
+      });
+      _textController.clear();
   }
 }
 
