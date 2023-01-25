@@ -52,6 +52,11 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
       _messages.insert(0, chatMessage);
     });
   }
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold();
+  }
 }
 
 
