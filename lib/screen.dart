@@ -81,6 +81,32 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     );
   }
 
+  Widget _buildTextComposer(){
+    return IconTheme(
+      data: IconThemeData(color: Theme.of(context).colorScheme.secondary), 
+      child: Container(
+        margin:  const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Row(
+          children: <Widget>[
+            Flexible(
+              child: TextField(
+                controller: _textController,
+                decoration:
+                    const InputDecoration.collapsed(hintText: 'Type Here'),
+                onSubmitted: _sendMessage,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 4.0),
+              child: IconButton(
+                  icon: const Icon(Icons.send),
+                  onPressed: () => _sendMessage("")),
+            ),
+          ],
+        ),
+      ),
+      );
+  }
 }
 
 
