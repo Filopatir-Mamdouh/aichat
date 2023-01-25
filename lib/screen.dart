@@ -55,7 +55,24 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
 
   @override
   Widget build(BuildContext context){
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('AI Chat'),
+      ),
+      body: Column(
+        children: <Widget>[
+          Flexible(
+            child: ListView.builder(
+              reverse: true,
+              padding: const EdgeInsets.all(8.0),
+              itemBuilder: (_, index) => _messages[index],
+              itemCount: _messages.length,
+            )
+            ),
+            
+        ],
+      ),
+    );
   }
 }
 
