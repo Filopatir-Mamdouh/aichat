@@ -1,5 +1,5 @@
 import 'dart:html';
-
+import 'package:aichat/chatmessage.dart';
 import 'package:flutter/material.dart';
 
 class ChatbotScreen extends StatefulWidget {
@@ -11,10 +11,15 @@ class ChatbotScreen extends StatefulWidget {
 
 class _ChatbotScreenState extends State<ChatbotScreen> {
   final TextEditingController _textController = TextEditingController();
+  final List<ChatMessage> _messages = [];
   final Uri _openAIUrl = Uri.parse('https://api.openai.com/v1/completions');
   final String _openAIKey =
       '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';
-  
+  void _sendMessage(String x){
+    if(_textController.text.trim().isEmpty){
+      return;
+    }
+  }
 }
 
 
