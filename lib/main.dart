@@ -1,3 +1,4 @@
+import 'package:aichat/screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blueGrey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      home: const ChatbotScreen(),
     );
   }
 }
