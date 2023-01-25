@@ -6,6 +6,7 @@ class ChatMessage extends StatelessWidget {
 
   const ChatMessage({super.key, required this.text, required this.sender});
 
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10.0),

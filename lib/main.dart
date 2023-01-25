@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blueGrey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ChatbotScreen(),
+      home: const ChatbotScreen(),
     );
   }
 }

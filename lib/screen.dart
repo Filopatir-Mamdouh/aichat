@@ -1,11 +1,12 @@
-import 'dart:html';
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:aichat/chatmessage.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' show json;
 
 class ChatbotScreen extends StatefulWidget {
-  ChatbotScreen({super.key});
+  const ChatbotScreen({super.key});
 
   @override
   _ChatbotScreenState createState() => _ChatbotScreenState();
@@ -45,7 +46,6 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     http.Response response =
         await http.post(_openAIUrl, headers: headers, body: json.encode(body));
     Map<String, dynamic> responseJson = json.decode(response.body);
-    print(responseJson['choices'][0]['text']);
     ChatMessage chatMessage = ChatMessage(
       text: responseJson['choices'][0]['text'].toString(),
       sender: 'bot',
