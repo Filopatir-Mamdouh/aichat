@@ -69,11 +69,18 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
               itemCount: _messages.length,
             )
             ),
-            
+            const Divider(height: 1.0,),
+            Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).cardColor,
+              ),
+              child: ,
+            )
         ],
       ),
     );
   }
+
 }
 
 
