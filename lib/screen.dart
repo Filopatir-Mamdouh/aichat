@@ -1,6 +1,8 @@
 import 'dart:html';
 import 'package:aichat/chatmessage.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' show json;
 
 class ChatbotScreen extends StatefulWidget {
   const ChatbotScreen({super.key})
@@ -26,6 +28,29 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
         _messages.insert(0, message);
       });
       _textController.clear();
+      _getResponse(message.text);
+  }
+
+  void _getResponse(String message) async {
+    Map<String,String> headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer $_openAIKey',
+    };
+    Map<String, dynamic> body = {
+      'model' : 'text-davinci-003',
+      'prompt': message,
+      'max_tokens': 256,
+    };
+    http.Response response = await http.post(_openAIUrl, headers: headers, body: json.encode(body));
+    Map<String, dynamic> responseJson = json.decode(response.body);
+    print(responseJson['choices'][0]['text']);
+    ChatMessage chatMessage = ChatMessage(
+      text: responseJson['choices'][0]['text'].toString(),
+      sender: 'bot',
+    );
+    setState(() {
+      _messages.insert(0, chatMessage);
+    });
   }
 }
 
