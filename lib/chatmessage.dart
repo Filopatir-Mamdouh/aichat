@@ -17,6 +17,15 @@ class ChatMessage extends StatelessWidget {
             child: CircleAvatar(
               child: Text(sender[0]),
             ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                sender,
+                style: const TextStyle(color: Colors.red),
+              )
+            ],
           )
         ],
       ),
